@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem "bullet", :group => "development" 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -79,7 +80,7 @@ group :development, :test do
   gem "capistrano-rails", '1.1.6',     require: false
   gem "capistrano-rvm",                require: false
   gem 'capistrano3-delayed-job', '~> 1.0'
-  gem "bullet"
+
   gem "faker"
 end
 
@@ -93,6 +94,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.0'
+  #gem "bullet"
 end
 
 group :production do
