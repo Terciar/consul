@@ -5,11 +5,11 @@ rvm:
  - "2.2.3"
 cache: bundler
 bundler_args: "--without production"
-script:
-- RAILS_ENV=test
-- bundle exec rake db:migrate --trace
-- bundle exec rake db:test:prepare
-- bundle exec rake rspec
+#script:
+#- RAILS_ENV=test
+#- bundle exec rake db:migrate --trace
+#- bundle exec rake db:test:prepare
+#- bundle exec rake rspec
 #before_script:
 #  - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
 #  - bundle exec rake db:setup
