@@ -8,3 +8,11 @@ before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
   - bundle exec rake db:setup
 script: bundle exec rake
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: hvHWecBRX1Qm1eqTMWyQ7HTbhHAa/dGc6/hKD4xL4CK7v9NZ4LNt3taMCXu5NWwmE2a4XJalvWjIUnEou0L7SC84yc1f5fx36U+E4kaCOyU1sYiIjbviha597+lqyJlsaP4KK6mb+jGRz5O+JPoCJXzL1A/4rHwOdyTd3fkie6IkW0VTBMB6UQ6318GCvsTOUM4RNKV04qwpkmy6+w/IR5G6Yoz0dHaueXKUIwXhiz7t83Du5YOKXm2QkAmnmf/CrVRm28NoJS05/a1CVswzwhEj0ndsZ98J9oTLfYWXFfl+pzYvfwjTXQD969S9BNTrXKp8dYDeR+gDFcudwznRFZ2ZKG/hydBgqabfdiem/cthbReZ7PHOq5winoDuBxlPNQBim+oPYn+IRpdQkhGrJnDfJBXHtIFrVRUS6S4W7SSZ1BzyUzCbr2OPky2AWMI7qGPMQhur9bNCJWS1nQW/0Y4LCLIoWIksl1teJz4yu7s+cd/KBTBOAI1jNbzsgYtdy6wnhM2axGEX/DcTV80RfQJzdg5Bk95atpZm1VVIwklJtJqNdjlTCdO1hWSBBRwwuRGhNyn9wua5ifzJuhGizsELGiBX+YwGOO7/ezcezW9PFSuAUiPirCJ2WOUwocRMphvY2ZI9umyrxHwV/NAxnz1lj9Ub3yPH8bTkbEj2V1c=
+  app: ciudadanos
+  on:
+    repo: Terciar/consul

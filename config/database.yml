@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASS"] %>
+  host: <%= ENV["DATA_BASE_URL"] %>
+  port: 5432
+
+development: &development
+  <<: *default
+  database: consul_development
+
+# The staging, preproduction and production dbs are only needed
+# for running rake assets:precompile locally before deploying
+staging:
+  <<: *development
+
+preproduction:
+  <<: *development
+
+production:
+  <<: *development
+
+test:
+  <<: *default
+  database: consul_test
