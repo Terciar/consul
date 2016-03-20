@@ -4,10 +4,10 @@ addons:
 rvm:
  - "2.2.3"
 cache: bundler
-before_script:
-  - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
-  - bundle exec rake db:setup
-script: bundle exec rake
+#before_script:
+#  - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
+#  - bundle exec rake db:setup
+#script: bundle exec rake
 
 deploy:
   provider: heroku
@@ -16,3 +16,10 @@ deploy:
   app: ciudadanos
   on:
     repo: Terciar/consul
+
+  run:
+    - "rake db:schema:load --trace"
+    - "rake db:seed"
+    - "rake db:dev_seed"
+#    - "rake cucumber"
+    - restart
