@@ -25,7 +25,7 @@ deploy:
 
   run:
     - "rake db:schema:load --trace"
-    - "rake db:seed"
+ #   - "rake db:seed"
     - "rake db:dev_seed"
 #    - "rake cucumber"
     - restart
