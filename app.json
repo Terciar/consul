@@ -2,6 +2,12 @@
   "name": "Consul",
   "description": "Consul - Open Government and E-Participation Web Software",
   "repository": "https://github.com/consul/consul",
+  "success_url": "/",
+  "keywords": [
+      "rails",
+      "ps",
+      "redis"
+    ],
   "scripts": {
     "postdeploy": "bundle exec rake db:setup"
   },
