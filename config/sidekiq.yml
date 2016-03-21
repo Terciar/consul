@@ -1,0 +1,8 @@
+:concurrency: 25
+production:
+  :concurrency: 5
+:queues:
+  - [default, 1]
+  - [mailer, 1]
+  - [mailers, 1]
+  - [recommendations, 1]
