@@ -1,0 +1,56 @@
+{
+  "name": "Consul",
+  "description": "Consul - Open Government and E-Participation Web Software",
+  "repository": "https://github.com/consul/consul",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  },
+  "env": {
+    "RACK_ENV": {
+      "description": "The rack environment to set up this deployment with.",
+      "required": true,
+      "value": "production"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "SEED": {
+      "description": "Yes if wanting to seed test data",
+      "value": "yes"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The amount of workers (forks) a web dyno will spawn.",
+      "required": false,
+      "value": "1"
+    },
+    "MAX_THREADS": {
+      "description": "The maximum amount of threads worker will spawn.",
+      "required": false,
+      "value": "1"
+    },
+    "FORCE_SSL": {
+      "description": "Force SSL?",
+      "required": false,
+      "value": "true"
+    },
+    "DISABLE_ROBOTS": {
+      "description": "Disable robots",
+      "required": false,
+      "value": "true"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis",
+  ],
+  "formation": [
+    { "process": "web",    "quantity": 1},
+    { "process": "worker", "quantity": 1}
+  ],
+  "buildpacks": [
+    { "url": "https://github.com/heroku/heroku-buildpack-nodejs" },
+    { "url": "https://github.com/jerrysu/heroku-buildpack-webpack" },
+    { "url": "https://github.com/heroku/heroku-buildpack-ruby" }
+  ]
+}
